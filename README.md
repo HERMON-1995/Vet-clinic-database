@@ -1,4 +1,4 @@
-### Vet clinic database
+# Vet clinic database
 
 <a name="readme-top"></a>
 
