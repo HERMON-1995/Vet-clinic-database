@@ -8,7 +8,7 @@ CREATE TABLE animals (
   escape_attempts INT,
   neutered BOOLEAN,
   weight_kg DECIMAL (5,2),
-  PRIMARY KEY (id);
+  PRIMARY KEY (id)
 );
 
 ALTER TABLE animals ADD species varchar(150);
@@ -44,11 +44,3 @@ ALTER TABLE animals
     
 ALTER TABLE animals
     ADD CONSTRAINT fk_owner_id FOREIGN KEY (owner_id) REFERENCES owners(id);
-
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
