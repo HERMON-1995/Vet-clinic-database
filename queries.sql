@@ -67,3 +67,56 @@ JOIN owners ON animals.owner_id = owners.id WHERE escape_attempts = 0 AND owners
 
 SELECT owners.full_name, COUNT(animals.id) AS count FROM animals
 JOIN owners ON owners.id = animals.owner_id GROUP BY owners.full_name ORDER BY count DESC LIMIT 1;
+
+
+SELECT vets.name, animals.name, visits.date FROM vets 
+JOIN visits ON vets.id = visits.id 
+JOIN animals ON animals.id = visits.animal_id
+WHERE vets.name = 'William Tatcher' 
+ORDER BY visits.date DESC LIMIT 1;
+
+SELECT COUNT(DISTINCT animals.id) AS number_of_animals FROM animals 
+JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'Stephanie Mendez';
+
+SELECT vets.name, species.name FROM vets
+LEFT JOIN specializations ON vets.id = specializations.vet_id
+LEFT JOIN species ON species.id = specializations.species_id;
+
+SELECT animals.name, visits.date FROM animals 
+JOIN visits  ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'Stephanie Mendez'
+AND visits.date BETWEEN '2020-04-01' AND '2020-08-30';
+
+SELECT animals.name, COUNT(visits.animal_id) as number_of_visits
+FROM animals
+JOIN visits ON animals.id = visits.animal_id
+GROUP BY animals.id ORDER BY number_of_visits
+DESC LIMIT 1; 
+
+SELECT animals.name, visits.date
+FROM animals
+JOIN visits ON animals.id = visits.animal_id
+WHERE visits.vet_id IN(SELECT id FROM vets WHERE name = 'Maisy Smith')
+ORDER BY visits.date ASC LIMIT 1;
+
+SELECT animals.* AS animal_data, vets.* AS vet_data, visits.date
+FROM animals
+INNER JOIN visits ON animals.id = visits.animal_id
+INNER JOIN vets ON visits.vet_id = vets.id
+WHERE visits.date = (SELECT MAX(date) FROM visits);
+
+SELECT COUNT (*) AS number_of_visits FROM visits 
+INNER JOIN vets ON visits.vet_id = vets.id
+INNER JOIN animals ON visits.animal_id = animals.id
+LEFT JOIN specializations ON vets.id = specializations.vet_id 
+AND animals.species_id = specializations.species_id
+WHERE specializations.species_id IS NULL;
+
+SELECT species.name FROM animals
+INNER JOIN visits ON animals.id = visits.animal_id
+INNER JOIN species ON animals.species_id = species.id
+WHERE visits.vet_id IN (SELECT id FROM vets WHERE name ILIKE '%maisy smith%')
+GROUP BY species.id ORDER BY COUNT(*) DESC LIMIT 1;
