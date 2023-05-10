@@ -31,7 +31,7 @@
 
 This is Vet clinic Database schema diagram:
 
-<img src="https://drawsql.app/teams/microverse-database-team/diagrams/vet-clinic-database" />
+<img src="./images/Vet clinic diagram" />
 
 ## 🛠 Built With <a name="built-with"></a>
 
