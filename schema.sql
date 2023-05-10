@@ -77,3 +77,7 @@ CREATE INDEX animals_id_asc ON visits(animal_id ASC);
 CREATE INDEX vet_id_asc ON visits(vet_id ASC);
 
 CREATE INDEX email_asc ON owners(email);
+
+-- ADD CONSTRAINT TO specializations
+ALTER TABLE specializations ADD CONSTRAINT fk_species
+ALTER TABLE specializations ADD CONSTRAINT fk_vets
