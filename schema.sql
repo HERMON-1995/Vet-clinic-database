@@ -2,7 +2,7 @@
 CREATE DATABASE vet_clinic;
 
 CREATE TABLE animals (
-  id INT DEFAULT nextval('animals_id_seq') NOT NULL,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(50),
   date_of_birth DATE,
   escape_attempts INT,
@@ -31,13 +31,16 @@ ALTER TABLE animals
     SET DEFAULT nextval('animals_id_seq'::regclass);
 ALTER SEQUENCE animals_id_seq OWNED BY animals.id;
 
+
 ALTER TABLE animals DROP COLUMN species;
+
 
 ALTER TABLE animals
     ADD COLUMN IF NOT EXISTS species_id INT;
 
 ALTER TABLE animals
     ADD CONSTRAINT fk_species_id FOREIGN KEY (species_id) REFERENCES species(id);
+
 
 ALTER TABLE animals
     ADD COLUMN IF NOT EXISTS owner_id INT;
@@ -66,3 +69,15 @@ CREATE TABLE visits (
     date DATE,
     PRIMARY KEY (id)
 );
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX animals_id_asc ON visits(animal_id ASC);
+
+CREATE INDEX vet_id_asc ON visits(vet_id ASC);
+
+CREATE INDEX email_asc ON owners(email);
+
+-- ADD CONSTRAINT TO specializations
+ALTER TABLE specializations ADD CONSTRAINT fk_species
+ALTER TABLE specializations ADD CONSTRAINT fk_vets
