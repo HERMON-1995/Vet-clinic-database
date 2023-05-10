@@ -29,9 +29,9 @@
 
 **[Vet clinic database]** is a database that includes data about animals, owners, employees, and visits. The data is stored in multiple related tables, allowing efficient storage and retrieval of information. The database is designed to enable easy access to the data by clinic staff.
 
-This is Vet clinic Database schema diagram:
+Below is Vet clinic Database schema diagram:
 
-<img src="./images/Vet clinic diagram" />
+<img src="./Database-diagram/Vet clinic diagram.png" alt="Vet clinic diagram" />
 
 ## 🛠 Built With <a name="built-with"></a>
 
