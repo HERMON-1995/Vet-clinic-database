@@ -38,20 +38,6 @@ Below is Vet clinic Database schema diagram:
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Client</summary>
-  <ul>
-    <li><a></a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a></a></li>
-  </ul>
-</details>
-
-<details>
 <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
@@ -80,7 +66,7 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-Install postgres from [Postgresql](https://www.postgresql.org/)
+- Install postgres from [Postgresql](https://www.postgresql.org/)
 
 ### Setup
 
@@ -105,15 +91,7 @@ To run the project, execute the following command:
 
 ### Run tests
 
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
+-[N/A]
 
 ### Deployment
 
